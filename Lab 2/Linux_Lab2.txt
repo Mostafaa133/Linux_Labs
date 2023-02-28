@@ -1,0 +1,47 @@
+1. create users called itiuser1, itiuser2
+sudo useradd -m itiuser1
+sudo useradd -m itiuser2
+ls /home
+
+2. create group called os_team
+sudo groupadd os_team
+
+3. create directory called os_team_workspace
+mkdir os_team_workspace
+
+4. assign os_team group to the directory os_team_workspaceand change mode to setgid (hint use sudo)
+sudo chgrp os_team os_team_workspace
+ls -ld
+chmod g+s os_team_workspace
+
+5. add users itituser1 and itituser2 to os_teamgroup
+sudo usermod -a -G os_team itiuser1
+sudo usermod -a -G os_team itiuser2
+groups itiuser1
+groups itiuser2
+
+6. create directory mydir1 using itiuser1 and mydir2 using itiuser2
+sudo passwd itiuser1
+sudo passwd itiuser2
+cd /var
+ls
+su itiuser1
+sudo mkdir mydir1
+ls
+su itiuser1
+sudo mkdir mydir1
+ls
+
+7. list directory permissions and send screenshot
+ls -l
+
+8. send screenshot of all processes in tree mod
+pstree
+
+9. execute command tail -f /var/log/syslog
+su mostafa
+tail -f /var/log/syslog
+
+10.find the process id PID of tail process then kill it using kill command
+ps -aux
+kill -9 2378
